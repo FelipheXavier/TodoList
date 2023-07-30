@@ -17,7 +17,7 @@ function App() {
   }
 
   const addNewTask = () =>{
-    if(tasks.length<=7 && newTask !== ""){
+    if(tasks.length<=6 && newTask !== ""){
       const newItem = {id:idGenerator(),title:newTask,done:false}
       const newTasksArray = [...tasks,newItem]
       setTask(newTasksArray)
@@ -27,7 +27,10 @@ function App() {
   const handleCheckbox = (id) =>{
     const newItens = tasks.map((e)=>((e.id===id) ? {...e, done: !e.done }:e))
     setTask(newItens)
-    
+  }
+  const deleteTask = (id) =>{
+    const newItens = tasks.filter((e)=>(e.id !== id))
+    setTask(newItens)
   }
   
   return (
@@ -39,6 +42,7 @@ function App() {
       setNewTask={setNewTask}
       addNewTask={addNewTask}
       handleCheckbox={handleCheckbox}
+      deleteTask={deleteTask}
       />
     </div>
   )

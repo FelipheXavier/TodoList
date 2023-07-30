@@ -1,7 +1,7 @@
 import Item from "./Item"
-const ToDoItems = ({tasks,setTasks,newTask,setNewTask,handleCheckbox}) => {
+const ToDoItems = ({tasks,setTasks,newTask,setNewTask,handleCheckbox,deleteTask}) => {
   return (
-    <ul className="mt-3">
+    <ul className="mt-3 w-full flex flex-col items-center">
         {tasks.map((item)=>(
             <Item 
             key={item.id}
@@ -10,6 +10,7 @@ const ToDoItems = ({tasks,setTasks,newTask,setNewTask,handleCheckbox}) => {
             newTask={newTask}
             setNewTask={setNewTask}
             handleCheckbox={handleCheckbox}
+            deleteTask={deleteTask}
             />
         ))}
     </ul>
