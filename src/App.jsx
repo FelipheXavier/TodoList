@@ -17,12 +17,13 @@ function App() {
   }
 
   const addNewTask = () =>{
-    if(tasks.length<=6 && newTask !== ""){
+    if(tasks.length <=10 && newTask !== ""){
       const newItem = {id:idGenerator(),title:newTask,done:false}
       const newTasksArray = [...tasks,newItem]
       setTask(newTasksArray)
-      setNewTask('')
+      
     }
+    setNewTask('')
   }
   const handleCheckbox = (id) =>{
     const newItens = tasks.map((e)=>((e.id===id) ? {...e, done: !e.done }:e))
